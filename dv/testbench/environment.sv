@@ -13,7 +13,7 @@ class environment extends uvm_env;
   endfunction
 	
   function void build_phase(uvm_phase phase);
-    i2c_agt = i2c_agent::type_id::create("i2c_agt", this);
+    i2c_agt = i2c_agent::type_id::create("i2c_agt", this);  //for system-level only
 	//create other agents?
   endfunction
 

@@ -8,7 +8,7 @@ import uvm_pkg::*;
 module top;
   dut_if dut_if();
   
-  //instantiate digital_top?
+  //instantiate digital_top? (for system-level only)
   
   //instantiate adc
   
@@ -18,6 +18,8 @@ module top;
     $shm_probe("ASM");
     //reset?
   end
+  
+  //clock?
   
   initial begin
     //interface to database
