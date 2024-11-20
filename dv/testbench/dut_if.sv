@@ -2,12 +2,12 @@
 `define _DUT_IF
 
 interface dut_if();
-  logic reset_n;	//chip reset
-
+  logic rst_n;	//chip reset
+  logic clk;
    //internal variables to manage inout signals
   logic enable;
-  logic V_in;
-  logic V_ref;
+  real v_in;
+  real v_ref;
   logic data_ready;
   logic [7:0] adc_q;
 

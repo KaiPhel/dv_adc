@@ -13,5 +13,5 @@ class base_test extends uvm_test;
   function void build_phase(uvm_phase phase);
     //create environment
   endfunction
-  
+  //useful functions???
 endclass

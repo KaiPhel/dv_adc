@@ -7,42 +7,43 @@ import uvm_pkg::*;
 
 module top;
 
-  bit clk;
+  //bit clk;
   
   //---------------------------------------
   //clock generation
   //---------------------------------------
-  always #5 clk = ~clk;
+  //always #5 clk = ~clk;
   
 
-  dut_if dut_if();
+  dut_if intf();
   //instantiate adc
 
 //---------------------------------------
 //DUT instance
 //---------------------------------------
-  memory DUT (
+  adc_dms_model DUT (
       .clk(intf.clk),
-      .reset(intf.rst_n),
+      .rst_n(intf.rst_n),
       .enable(intf.enable),
-      .V_in(intf.V_in),
-      .V_ref(intf.V_ref),
+      .v_in(intf.v_in),
+      .v_ref(intf.v_ref),
       .data_ready(intf.data_ready),
       .adc_q(intf.adc_q)
     );
 
   initial begin
-    $dumpfile("dump.vcd"); $dumpvars;
+    $dumpfile("dump.vcd"); 
+    $dumpvars;
     $shm_open("waves.shm");
     $shm_probe("ASM");
+    //interface to database
+    run_test(); //+UVM_TESTNAME=test_i2c_write
     //reset?
   end
   
-  //clock?
-  
-  initial begin
+  /*nitial begin
     //interface to database
     run_test(); //+UVM_TESTNAME=test_i2c_write
-  end
+  end*/
     
 endmodule : top
