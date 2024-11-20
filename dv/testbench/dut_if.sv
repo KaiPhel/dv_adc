@@ -3,21 +3,13 @@
 
 interface dut_if();
   logic reset_n;	//chip reset
-  
-  //following signals are for system-level verification. You can delete them for block-level
-  tri1 sclk;
-  tri1 sdata;   //be aware with inout signals. It is an opendrain that must be driven by someone continiuously
-  
-  //internal variables to manage inout signals
-  logic sda_drive;			//I2C interface. data
-  logic scl_drive;			//I2C interface. clock
-      
-  logic sda_val;
-  logic scl_val;
-  
-  //glue logic
-  assign sdata = sda_drive ? sda_val : 'z;
-  assign sclk = scl_drive ? scl_val : 'z;
+
+   //internal variables to manage inout signals
+  logic enable;
+  logic V_in;
+  logic V_ref;
+  logic data_ready;
+  logic [7:0] adc_q;
 
 endinterface
 
